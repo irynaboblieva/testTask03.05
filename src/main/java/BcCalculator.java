@@ -1,9 +1,20 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * BcCalculator provides basic arithmetic operations (+, -, *, /)
+ * using Linux command-line calculator `bc`.
+ */
 public class BcCalculator {
 
-    // Метод для виконання команд у командному рядку через ProcessBuilder
+    private static final int SCALE = 6; // Precision for division
+
+    /**
+     * Executes a shell command using bash.
+     *
+     * @param command shell command to run
+     * @return output of the command
+     */
     public String executeCommand(String command) {
         StringBuilder output = new StringBuilder();
         try {
@@ -25,21 +36,21 @@ public class BcCalculator {
     }
 
     public String add(int a, int b) {
-        return executeCommand("echo \"" + a + " + " + b + "\" | bc");
+        return executeCommand("echo \"" + a + " + " + b + "\" | bc -l");
     }
 
     public String subtract(int a, int b) {
-        return executeCommand("echo \"" + a + " - " + b + "\" | bc");
+        return executeCommand("echo \"" + a + " - " + b + "\" | bc -l");
     }
 
     public String multiply(int a, int b) {
-        return executeCommand("echo \"" + a + " * " + b + "\" | bc");
+        return executeCommand("echo \"" + a + " * " + b + "\" | bc -l");
     }
 
     public String divide(int a, int b) {
         if (b == 0) {
             throw new ArithmeticException("division by zero");
         }
-        return executeCommand("echo \"scale=6; " + a + " / " + b + "\" | bc -l");
+        return executeCommand("echo \"scale=" + SCALE + "; " + a + " / " + b + "\" | bc -l");
     }
 }

@@ -17,8 +17,8 @@ A Java-based testing suite that ensures the `bc` command-line tool performs corr
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/BcCalculator.git
-    cd BcCalculator
+    git clone https://github.com/irynaboblieva/testTask03.05.git
+    cd BcExecutor
     ```
 
 2. Build with Maven:

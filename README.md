@@ -46,28 +46,6 @@ This will run all unit tests, including tests for:
 - Large numbers beyond Java’s `Integer.MAX_VALUE`
 - Invalid or malformed expressions
 
-## Example `bc` Requests and Expected Responses
-
-Here are some examples of valid and invalid input for `bc` along with the expected results:
-
-| **Input Expression**           | **STDOUT/Result**                       | **STDERR/Error**                        |
-|---------------------------------|-----------------------------------------|-----------------------------------------|
-| `0011342349878977349729`       | ✅ STDOUT: `11342349878977349729`      |                                         |
-| `0x13`                          |                                         | ⚠️ STDERR: `(standard_in) 1: syntax error`|
-| `-234987379834`                | ✅ STDOUT: `-234987379834`              |                                         |
-| ` +17373497854789`             |                                         | ⚠️ STDERR: `(standard_in) 1: syntax error`|
-| ` *924328793497843`            |                                         | ⚠️ STDERR: `(standard_in) 1: syntax error`|
-| `/-8434379374 `                |                                         | ⚠️ STDERR: `(standard_in) 1: syntax error`|
-| ` - 0.89 `                      | ✅ STDOUT: `-.89`                       |                                         |
-| `--3`                           |                                         | ⚠️ STDERR: `(standard_in) 1: syntax error`|
-| `- - 3`                         | ✅ STDOUT: `3`                          |                                         |
-| `4 + 2 * 3`                     | ✅ STDOUT: `10`                         |                                         |
-| ` 5.6 * 1.20 - 2`              | ✅ STDOUT: `4.72`                       |                                         |
-| `1/0`                           |                                         | ⚠️ STDERR: `Runtime error (func=(main), adr=3): Divide by zero` |
-| `scale=3; 0.14`                 | ✅ STDOUT: `.14`                        |                                         |
-| `scale=-4; -0.4`               | ✅ STDOUT: `-.4`                        | ⚠️ STDERR: `Runtime warning (func=(main), adr=6): negative scale, set to 0` |
-| `5.0/-3`                        | ✅ STDOUT: `-1`                         |                                         |
-| `scale=2; 5.0/-3`              | ✅ STDOUT: `-1.66`                      |                                         |
 
 ## Tests
 
